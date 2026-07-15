@@ -1,0 +1,410 @@
+O PRD está bem estruturado como uma visão inicial do produto, mas ainda não está no formato ideal para o Lovable (ou outras plataformas de geração de aplicações por IA). O documento mistura visão de produto, requisitos, UX e detalhes técnicos, mas deixa diversas decisões implícitas que a IA precisará "inventar", aumentando a chance de gerar um sistema inconsistente.
+
+Além disso, alguns pontos importantes para um MVP ficaram de fora, como autenticação, modelo de dados mais completo, fluxos de erro, regras de negócio e comportamento do agente.
+
+Minha sugestão é reorganizar o PRD para que ele seja mais prescritivo e orientado à implementação.
+
+==========> PROMPT ENVIADO PARA O LOVABLE
+
+PRD — Sistema de Organização de Finanças Pessoais (MVP)
+1. Visão Geral
+Nome do Produto
+
+Finance AI
+
+Objetivo
+
+Construir um sistema de organização financeira pessoal onde toda a experiência principal acontece através de uma conversa com um agente de IA.
+
+A hipótese do MVP é:
+
+Usuários registram despesas e receitas com maior frequência quando utilizam linguagem natural em vez de formulários tradicionais.
+
+O sistema deve permitir que o usuário converse naturalmente com a IA para registrar movimentações financeiras, consultar informações e receber recomendações simples.
+
+2. Público-alvo
+
+Pessoas que desejam controlar gastos pessoais sem utilizar planilhas.
+
+Características:
+
+- usuários iniciantes em educação financeira
+- procuram rapidez
+- preferem conversar ao invés de preencher formulários
+
+3. Objetivos do MVP
+
+O usuário deve conseguir:
+
+- cadastrar uma conta
+- registrar receitas
+- registrar despesas
+- visualizar saldo
+- consultar histórico
+- criar metas financeiras
+- acompanhar indicadores
+- receber recomendações automáticas
+
+4. Escopo do MVP
+- autenticação
+- chat com IA
+- cadastro automático de transações
+- dashboard
+- histórico
+- metas financeiras
+- recomendações
+
+
+5. Fluxo Principal
+Primeiro acesso
+Cadastro
+Login
+Onboarding
+Definição do objetivo financeiro
+Tutorial rápido
+Tela Home
+Fluxo principal diário
+
+- Usuário abre o aplicativo
+- Entra no Chat
+- Envia uma mensagem
+- IA interpreta
+- Confirma a transação
+- Salva no banco
+- Atualiza Dashboard
+- Atualiza metas
+- Atualiza recomendações
+
+6. Funcionalidades
+6.1 Autenticação
+
+O sistema deve possuir:
+
+Cadastro
+- Login
+- Logout
+- Recuperação de senha
+
+Campos:
+
+- Nome
+- Email
+- Senha
+
+6.2 Onboarding
+
+Pergunta obrigatória:
+
+Qual é seu principal objetivo financeiro?
+
+Opções:
+
+- Economizar
+- Controlar gastos
+- Sair das dívidas
+- Guardar dinheiro
+- Outro
+
+Depois disso mostrar um tutorial curto.
+
+Exemplo:
+
+Digite algo como:
+
+"Gastei R$ 30 no mercado"
+
+6.3 Home
+
+A Home deve mostrar:
+
+- saldo atual
+- receitas do mês
+- despesas do mês
+- última movimentação
+- meta em andamento
+
+Botões:
+
+- Conversar
+- Histórico
+- Dashboard
+- Metas
+
+6.4 Chat Financeiro
+
+Esta é a principal funcionalidade do sistema.
+
+A conversa deve parecer semelhante ao WhatsApp. O usuário pode escrever mensagens livres.
+
+Exemplos:
+
+Gastei R$ 45 no Uber
+
+Recebi R$ 3500 de salário
+
+Comprei roupas por R$ 250
+
+Ontem paguei R$ 70 na farmácia
+
+A IA deve extrair:
+
+- tipo
+- valor
+- categoria
+- descrição
+- data
+
+Exemplo estruturado:
+
+{
+  "tipo": "despesa",
+  "valor": 45,
+  "categoria": "Transporte",
+  "descricao": "Uber",
+  "data": "2026-07-13"
+}
+
+Depois deve salvar automaticamente.
+
+Resposta:
+
+Registrei sua despesa de R$ 45 em Transporte.
+
+Caso exista ambiguidade:
+
+Usuário:
+
+Gastei R$ 120
+
+Resposta:
+
+Em qual categoria deseja registrar?
+
+6.5 Histórico
+
+Lista cronológica.
+
+Cada item possui:
+
+- descrição
+- categoria
+- valor
+- tipo
+- data
+
+Filtros:
+
+- Hoje
+- Semana
+- Mês
+- Categoria
+- Receita
+- Despesa
+
+Permitir:
+
+- editar
+- excluir
+
+6.6 Dashboard
+
+Mostrar:
+
+Cards
+- Saldo atual
+- Receitas
+- Despesas
+- Economia do mês
+
+Gráficos
+
+- Receitas x Despesas
+- Gastos por categoria
+- Evolução mensal
+
+6.7 Metas
+
+Usuário pode criar metas.
+
+Campos:
+
+Nome
+Valor alvo
+Prazo
+
+O sistema calcula:
+
+valor acumulado
+percentual
+previsão de conclusão
+
+Exemplo
+
+Viagem
+
+46%
+
+R$ 2.300 / R$ 5.000
+
+6.8 Agente Financeiro
+
+Tela dedicada às análises.
+
+A IA deve gerar recomendações utilizando os dados do usuário.
+
+Exemplos:
+
+Você gastou mais com alimentação este mês.
+
+Seu gasto em transporte aumentou 18%.
+
+Se reduzir R$ 15 por dia em delivery poderá economizar cerca de R$ 450 por mês.
+
+Sua meta pode ser atingida em aproximadamente 5 meses mantendo o ritmo atual.
+
+As recomendações nunca devem inventar dados.
+
+Todas devem ser calculadas utilizando as transações cadastradas.
+
+7. Regras de IA
+
+A IA deve:
+
+- entender linguagem natural em português
+- identificar valores monetários
+- identificar datas relativas (ontem, hoje, semana passada)
+- classificar automaticamente categorias
+- pedir confirmação quando houver dúvida
+- nunca apagar registros automaticamente
+- nunca alterar registros sem confirmação
+
+8. Categorias
+
+Receitas
+
+- Salário
+- Freelance
+- Investimentos
+- Vendas
+- Outros
+
+Despesas
+
+- Alimentação
+- Mercado
+- Transporte
+- Saúde
+- Educação
+- Moradia
+- Lazer
+- Compras
+- Assinaturas
+- Contas
+- Outros
+
+
+9. Estrutura do Banco de Dados
+
+Tabela: usuarios
+Armazena os dados dos usuários cadastrados no sistema.
+Campos:
+- id: Identificador único do usuário
+- nome: Nome completo do usuário
+- email: Email utilizado para login
+- senha_hash: Senha criptografada
+- objetivo_financeiro: Principal objetivo financeiro escolhido no onboarding. Valores possíveis: Economizar, Controlar gastos, Sair das dívidas, Guardar dinheiro, Outro
+- criado_em: Data e hora de criação do cadastro
+- atualizado_em: Data e hora da última atualização
+
+Tabela: transacoes
+Armazena todas as receitas e despesas registradas pelo usuário.
+Campos:
+
+- id: Identificador único da transação
+- usuario_id: Referência ao usuário proprietário da transação
+- tipo: Tipo da movimentação financeira. Valores possíveis: receita, despesa.
+- valor: Valor monetário da transação
+- categoria: Categoria financeira da transação. Ex: alimentação. mercado...
+- descricao: Descrição da movimentação
+- data_transacao: Data em que ocorreu a movimentação financeira
+- origem_registro: Forma como a transação foi criada. Valores possíveis: chat, manual
+- confianca_ia: Percentual de confiança da classificação automática realizada pela IA
+- criado_em: Data e hora de criação do registro
+- atualizado_em: Data e hora da última atualização
+
+Tabela: metas_financeiras
+Armazena os objetivos financeiros criados pelos usuários.
+Campos:
+- id: Identificador único da meta
+- usuario_id: Referência ao usuário dono da meta
+- nome: Nome da meta
+- valor_objetivo: Valor total desejado para atingir a meta
+- valor_atual: Valor acumulado atualmente
+- prazo: Data limite desejada para alcançar a meta
+- status: Estado atual da meta. Valores possíveis: ativa, concluída, cancelada
+- criado_em: Data e hora de criação
+- atualizado_em: Data e hora da última alteração
+
+Tabela: conversas
+Armazena o histórico das interações entre usuário e agente financeiro.
+Campos:
+
+- id: Identificador único da conversa
+- usuario_id: Referência ao usuário
+- tipo_mensagem: Quem enviou a mensagem. Valores possíveis: usuario, 
+assistente
+- mensagem: Conteúdo enviado pelo usuário ou pela IA
+- dados_extraidos: Dados estruturados identificados pela IA na mensagem
+- criado_em: Data e hora da mensagem
+
+Relacionamentos
+Usuário -> Transações
+Um usuário pode possuir várias transações.
+Usuário -> Metas Financeiras
+Um usuário pode possuir várias metas.
+Usuário -> Conversas
+Um usuário pode possuir várias mensagens.
+
+Regras importantes do banco
+Toda transação deve obrigatoriamente estar vinculada a um usuário.
+Usuários só podem visualizar e alterar seus próprios dados.
+Exclusão de usuário deve remover suas transações, metas e conversas associadas.
+Valores financeiros devem utilizar tipo numérico adequado para moeda.
+Datas devem ser armazenadas em formato compatível com fuso horário.
+Todas as alterações importantes devem possuir registro de data de criação e atualização.
+
+
+10. Navegação
+
+- Login
+- Onboarding
+- Home
+- Chat
+- Histórico
+- Dashboard
+- Metas
+- Perfil
+
+11. Critérios de Aceitação
+
+O MVP será considerado funcional quando um usuário conseguir:
+
+- Criar uma conta.
+- Registrar receitas e despesas apenas por mensagens em linguagem natural.
+- Ter as transações classificadas automaticamente.
+- Editar ou excluir qualquer transação.
+- Visualizar saldo atualizado.
+- Consultar histórico filtrado.
+- Criar metas financeiras.
+- Visualizar gráficos de receitas, despesas e categorias.
+- Receber recomendações geradas a partir dos próprios dados.
+
+12. Stack Técnica
+- Frontend: React + TypeScript
+- Backend: Supabase
+- Banco de Dados: Supabase
+- Autenticação: Supabase Auth
+- IA: OpenAI (GPT-4.1 ou GPT-5.5) via API
+- Armazenamento: Supabase Storage (preparado para futuras funcionalidades)
+- Gráficos: Recharts
+- Estilização: Tailwind CSS + shadcn/ui

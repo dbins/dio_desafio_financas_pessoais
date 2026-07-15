@@ -1,0 +1,3 @@
+Revise este PRD (Product Requirements Document - Documento de Requisitos do Produto) para que ele possa ser usado para criar o sistema de Organização de Finanças Pessoais utilizando o Lovable.
+
+<<RESPOSTA PROMPT 1>>

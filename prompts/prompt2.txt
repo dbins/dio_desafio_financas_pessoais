@@ -1,0 +1,264 @@
+<<RESPOSTA PROMPT 1>>
+
+Um MVP para esse sistema deve validar a principal hipótese do produto: as pessoas conseguem manter o controle financeiro com mais frequência quando interagem por conversa, em vez de preencher formulários tradicionais.
+
+Objetivo do MVP
+
+Permitir que o usuário registre despesas e receitas por meio de mensagens em linguagem natural, receba classificação automática, acompanhe seu saldo e obtenha recomendações simples para melhorar sua saúde financeira.
+
+Funcionalidades do MVP
+1. Cadastro e onboarding
+
+Objetivo: colocar o usuário para usar o aplicativo em poucos minutos.
+
+Recursos:
+
+Cadastro com e-mail e Nome do usuário
+Pergunta inicial:
+"Qual é seu principal objetivo financeiro?"
+- Economizar
+- Sair das dívidas
+- Controlar gastos
+- Guardar dinheiro
+- Tutorial curto mostrando como conversar com o aplicativo.
+
+2. Chat Financeiro (principal tela)
+
+É o coração do sistema.
+
+Exemplos de mensagens:
+
+Gastei R$ 35 no Uber
+Comprei um lanche de R$ 22
+Recebi meu salário de R$ 3.800
+Paguei aluguel de R$ 1.400
+
+O sistema deve:
+
+- entender valor
+- identificar se é receita ou despesa
+- identificar categoria
+- salvar automaticamente
+
+Resposta do agente:
+
+Registrei uma despesa de R$ 35 em Transporte.
+ou
+Recebi! Seu salário de R$ 3.800 foi registrado como Receita.
+
+Também pode perguntar quando houver dúvida:
+
+Esse gasto de R$ 120 foi mercado ou restaurante?
+
+3. Histórico Financeiro
+
+Lista simples contendo:
+
+- data
+- descrição
+- categoria
+- valor
+- tipo (receita/despesa)
+
+Filtros:
+
+- Hoje
+- Semana
+- Mês
+- Categoria
+
+Também permitir:
+
+- editar
+- excluir registros
+
+4. Metas Financeiras
+
+Exemplos:
+
+"Guardar R$ 5.000"
+"Juntar dinheiro para viajar"
+
+Cada meta possui:
+
+- valor alvo
+- prazo
+- progresso
+- percentual concluído
+
+Exemplo:
+
+Meta
+Viagem
+R$ 2.300 de R$ 5.000
+46%
+
+5. Dashboard
+
+Mostrar as seguintes informações.
+
+- Saldo atual
+- Receitas do mês
+- Despesas do mês
+- Categoria que mais gastou
+- Meta em andamento
+
+Gráfico simples:
+- Receitas x despesas
+
+Gráfico de pizza:
+- Categorias de gastos
+
+6. Agente Financeiro
+
+Uma tela exclusiva com recomendações.
+
+Exemplo:
+
+"Você gastou 38% do orçamento em alimentação."
+
+"Seu gasto com transporte aumentou 22%."
+
+"Se reduzir R$ 10 por dia em delivery, poderá economizar aproximadamente R$ 300 por mês."
+
+"Você está perto da sua meta."
+
+Principais telas
+
+1. Login
+
+- Entrar
+
+Cadastrar
+
+2. Onboarding
+
+- Objetivo financeiro
+-  Explicação do chat
+
+Permissões
+
+3. Home
+
+- Resumo financeiro
+- Botão "Conversar"
+- Acesso rápido ao dashboard
+
+4. Chat
+
+- Histórico de mensagens
+- Campo para digitar
+
+Sugestões rápidas:
+
+- Registrar gasto
+- Registrar receita
+- Criar meta
+
+5. Histórico
+
+- Lista de transações
+- Filtro
+- Pesquisa
+
+6. Dashboard
+
+Receitas
+
+- Despesas
+- Saldo
+- Gráficos
+- Categorias
+
+7. Metas
+
+- Lista de metas
+- Criar meta
+- Editar
+- Progresso
+
+9. Perfil
+
+- Dados pessoais
+- Notificações
+
+Recursos de IA
+
+Linguagem Natural (NLP)
+
+Extrair automaticamente:
+
+- valor
+- estabelecimento
+- categoria
+- data
+- tipo da transação
+
+Exemplo:
+
+"Ontem gastei R$ 42 na farmácia"
+
+Dados extraídos de forma estruturada:
+
+- Data: ontem
+- Valor: 42
+- Categoria: Saúde
+- Tipo: Despesa
+- Classificação automática
+
+Categorias iniciais:
+
+- Alimentação
+- Mercado
+- Transporte
+- Saúde
+- Educação
+- Moradia
+- Lazer
+- Compras
+- Assinaturas
+- Salário
+- Investimentos
+- Outros
+
+Recomendações
+A IA pode analisar:
+
+- aumento de gastos
+- categorias mais caras
+- evolução mensal
+- metas
+- frequência de compras
+
+Estrutura inicial do banco de dados
+
+Usuário
+- id
+- nome
+- email
+- dataCadastro
+
+Transação
+- id
+- usuarioId
+- tipo
+- valor
+- categoria
+- descrição
+- data
+- criadoEm
+
+Meta
+- id
+- usuarioId
+- nome
+- valorObjetivo
+- valorAtual
+- prazo
+
+Conversa
+- id
+- usuarioId
+- mensagemUsuario
+- respostaIA
+- timestamp
